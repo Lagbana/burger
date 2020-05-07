@@ -5,7 +5,7 @@ const router = express.Router()
 
 /* HTML Routes */
 router.get('/', async function (req, res) {
-    res.render('index', {})
+    res.render('index')
 })
 
 /* API Routes */
