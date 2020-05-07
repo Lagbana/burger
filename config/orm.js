@@ -6,7 +6,7 @@ const orm = {
         const [rows] = await connection.query(sql, [tableName, orderColumn])
         return rows
     },
-    // result.insertId, 
+   
     insertOne: async function (tableName, colOne, colTwo, valOfColOne, valOfColTwo) {
         const sql = `INSERT INTO ?? (??, ??) VALUES (?, ?)`
         const [result] = await connection.query(sql, [
@@ -18,13 +18,15 @@ const orm = {
         ])
         return result
     },
-    // result.affectedRows
-    updateOne: async function (tableName, updateCol, updateVal, searchCol, searchVal) {
-        const sql = `UPDATE ?? SET ?? = ? WHERE ?? = ?;`
+    
+    updateOne: async function (tableName, colOne, valueOne, colTwo, valueTwo, searchCol, searchVal) {
+        const sql = `UPDATE ?? SET ?? = ?, ?? = ? WHERE ?? = ?;`
         const [result] = await connection.query(sql, [
             tableName, 
-            updateCol, 
-            updateVal, 
+            colOne, 
+            valueOne,
+            colTwo,
+            valueTwo, 
             searchCol, 
             searchVal
         ])
