@@ -9,6 +9,14 @@ router.get('/', async function (req, res) {
 })
 
 /* API Routes */
+router.get('/api/burgers', async function (req, res) {
+    try {
+        const burgers = await Burger.getAllBurgers()
+        res.status(200).json({data: burgers})
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
 
 
 module.exports = router
