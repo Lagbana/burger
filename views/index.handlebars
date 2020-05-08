@@ -1,13 +1,39 @@
-<img id="burger" src= "/assets/img/burger.png" alt="burger">
+<main class="main-content">
+    <img id="burger" src="/assets/img/burger.png" alt="burger">
 
-<h1>Eat-Da-Burger!</h1>
+    <h1>Eat-Da-Burger!</h1>
 
-<form id="create-form">
-    <div class="form-group">
-        <label for="burgername"></label>
-        <textarea name="name" id="burgername" type="text"></textarea>
+    <div id="section">
+        <div id="uneaten-list">
+            <h4>Menu</h4>
+            <ol>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devour=true}}
+                {{/unless}}
+                {{/each}}
+            </ol>
+        </div>
+        <div id="eaten-list">
+            <h4>Devoured Burgers</h4>
+            <ol>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li class="lists">{{burger_name}} </li>
+                {{/if}}
+                {{/each}}
+            </ol>
+        </div>
     </div>
-    <button type="submit">Submit</button>
-</form>
 
-<p>Enter a burger you want to eat and Click the "Submit" button</p>
+    <div id="form-div">
+        <form id="create-form">
+            <div class="form-group">
+                <label for="burgername"></label>
+                <textarea name="name" id="burger-name-input" type="text" placeholder="Create a new burger"></textarea>
+            </div>
+            <button id="main-button" type="submit">Submit</button>
+        </form>
+    </div>
+
+</main>
