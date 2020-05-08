@@ -19,14 +19,11 @@ const orm = {
         return result
     },
     
-    updateOne: async function (tableName, colOne, valueOne, colTwo, valueTwo, searchCol, searchVal) {
-        const sql = `UPDATE ?? SET ?? = ?, ?? = ? WHERE ?? = ?;`
+    updateOne: async function (tableName, colToUpdate, searchCol, searchVal) {
+        const sql = `UPDATE ?? SET ? WHERE ?? = ?;`
         const [result] = await connection.query(sql, [
             tableName, 
-            colOne, 
-            valueOne,
-            colTwo,
-            valueTwo, 
+            colToUpdate, 
             searchCol, 
             searchVal
         ])
