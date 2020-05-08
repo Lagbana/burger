@@ -13,6 +13,13 @@ class Burger {
         return burgers
     }
 
+    async save () {
+        if (this.id) {
+            return this.updateBurger()
+        } else {
+            return this.addBurger()
+        }
+    }
     async addBurger () {
         const burger = await orm.insertOne(
             `burgers`,
@@ -29,10 +36,7 @@ class Burger {
         this.isDevoured = fixBool(this.isDevoured)
         const burger = await orm.updateOne(
             `burgers`,
-            `burger_name`,
-            this.burgerName,
-            `devoured`,
-            this.isDevoured,
+            {burger_name: this.burgerName, devoured: this.isDevoured},
             `id`,
             this.id
         )
