@@ -5,29 +5,44 @@ const router = express.Router()
 
 /* HTML Routes */
 router.get('/', async function (req, res) {
-    res.render('index')
+    const data = await Burger.getAllBurgers()
+    res.render('index', { burgers: data })
 })
 
 /* API Routes */
 router.get('/api/burgers', async function (req, res) {
     try {
         const burgers = await Burger.getAllBurgers()
-        res.status(200).json({data: burgers})
-    } catch(err) {
-        res.status(500).json(err)
-    }
-})
-
-router.post('/api/burgers', async (req, res) => {
-    try{
-        const burger = new Burger(req.body)
-        
-        // console.log(newBurger)
-        res.status(200).json(newBurger)
+        res.status(200).json({ data: burgers })
     } catch (err) {
         res.status(500).json(err)
     }
 })
 
+router.post('/api/burgers', async (req, res) => {
+    try {
+        const newBurger = new Burger(req.body)
+        await newBurger.save()
+        res.status(201).json(newBurger)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.patch('/api/burgers/:id', async (req, res) => {
+
+    const id = req.params.id
+    const burgerName = req.body.burger_name
+    const devoured = req.body.devoured
+
+    let updatedBurger = new Burger({ burgerName: burgerName, isDevoured: devoured, id })
+    try {
+        await updatedBurger.save()
+        res.status(200).json(updatedBurger)
+        
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router
