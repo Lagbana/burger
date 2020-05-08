@@ -18,5 +18,16 @@ router.get('/api/burgers', async function (req, res) {
     }
 })
 
+router.post('/api/burgers', async (req, res) => {
+    try{
+        const burger = new Burger(req.body)
+        
+        // console.log(newBurger)
+        res.status(200).json(newBurger)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 
 module.exports = router
