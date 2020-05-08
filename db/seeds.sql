@@ -1,14 +1,14 @@
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Tunami", 0);
+VALUES ("Tunami Burger", 0);
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Summer Thyme", 0);
+VALUES ("Summer Thyme Burger", 0);
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Peas and Thank You", 0);
+VALUES ("Top Bun Burger", 0);
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("To Err Is Cumin", 0);
+VALUES ("To Err Is Cumin Burger", 0);
 
 INSERT INTO burgers (burger_name, devoured)
-VALUES ("Elvis Parsley", 0);
+VALUES ("Elvis Parsley Burger", 0);
