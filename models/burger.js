@@ -13,6 +13,7 @@ class Burger {
         return burgers
     }
 
+
     async save () {
         if (this.id) {
             return this.updateBurger()
@@ -40,7 +41,6 @@ class Burger {
             `id`,
             this.id
         )
-        console.log(burger.affectedRows)
         return this
     }
 
