@@ -19,7 +19,7 @@ document.querySelectorAll(".change-devoured").forEach(button => {
 document.getElementById('create-form').addEventListener('submit', event => {
   event.preventDefault()
   const newBurger = {
-    burgerName: document.getElementById('burgername').value.trim()
+    burgerName: document.getElementById('burger-name-input').value.trim()
   }  
 
   fetch(`/api/burgers`, {
