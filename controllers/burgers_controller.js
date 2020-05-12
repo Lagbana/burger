@@ -1,3 +1,4 @@
+// Import dependencies
 const express = require("express")
 const Burger = require("../models/burger")
 
@@ -10,6 +11,7 @@ router.get('/', async function (req, res) {
 })
 
 /* API Routes */
+// Get request at API route
 router.get('/api/burgers', async function (req, res) {
     try {
         const burgers = await Burger.getAllBurgers()
@@ -18,7 +20,7 @@ router.get('/api/burgers', async function (req, res) {
         res.status(500).json(err)
     }
 })
-
+// Post request at API route
 router.post('/api/burgers', async (req, res) => {
     try {
         const newBurger = new Burger(req.body)
@@ -28,7 +30,7 @@ router.post('/api/burgers', async (req, res) => {
         res.status(500).json(err)
     }
 })
-
+// Patch request at API route to update burger name by id
 router.patch('/api/burgers/:id', async (req, res) => {
 
     const id = req.params.id
