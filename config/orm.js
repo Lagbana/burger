@@ -31,7 +31,7 @@ const orm = {
     return result;
   },
   /*
-        *Function updateOne: update an existing entry in the database
+        *Function updateOne: updates an existing entry in the database
   */
   updateOne: async function (tableName, colToUpdate, searchCol, searchVal) {
     const sql = `UPDATE ?? SET ? WHERE ?? = ?;`;
