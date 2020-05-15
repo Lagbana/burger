@@ -10,7 +10,11 @@ Create a burger logger with `MySQL`, `Node`, `Express`, `Handlebars` and a homem
 
 
 ## Usage
-Examples coming soon... 
+#### Watch the video below to see the application in action
+
+<a href="https://www.screencast.com/t/DUtaOyzjtx" target="_blank">
+<img src="https://content.screencast.com/users/Larry2846/folders/Default/media/9a5a559f-0b5c-4a07-8a3f-86251c83e602/LWR_Recording.png" alt="VIDEO" width="546px" height="256px" /></a>
+
 
 
 ## License
